@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { SummaryField } from "./SumnmaryField";
 
-const PRICE_PER_SLOT = 60000;
+const PRICE_PER_SLOT = 15; // USD
 
 export function BookingSummary({ bookings } : { bookings: UserBooking[] }) {
     const totalSlots = bookings?.length ?? 0;
     const uniqueCourts = [...new Set(bookings.map((booking) => booking.court_name))].join(", ");
 
     const dates = [...new Set(bookings.map((booking) => booking.booked_date))];
-    const formattedDates = dates.map(date => new Date(date + "T00:00:00").toLocaleDateString("es-CO", {
+    const formattedDates = dates.map(date => new Date(date + "T00:00:00").toLocaleDateString("es-EC", {
         weekday: "short",
         day: "numeric",
         month: "short",
@@ -36,9 +36,9 @@ export function BookingSummary({ bookings } : { bookings: UserBooking[] }) {
                         Valor Total
                     </div>
                     <div className="text-2xl font-black text-emerald-700">
-                        ${totalPrice.toLocaleString("es-CO")} COP
+                        ${totalPrice.toFixed(2)} USD
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">($60.000 COP por hora/cancha)</p>
+                    <p className="text-xs text-gray-500 mt-1">(${PRICE_PER_SLOT}.00 USD por hora/cancha)</p>
                 </div>
             </div>
 

@@ -69,7 +69,7 @@ export default function BookingPage() {
         const pendingBookings: UserBooking[] = selectedBookings.map((booking) => ({
             ...booking,
             court_name: allCourts.find((c) => c.court_id === booking.court_id)?.court_name ?? "Cancha",
-            price: 60000,
+            price: 15,
         }));
         localStorage.setItem("pendingBookings", JSON.stringify(pendingBookings));
         router.push("/booking/confirm");
