@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
             }
         }
         
-        return NextResponse.json({ error: "Server error" }, { status: 500 })
+        const detailed = error?.sqlMessage || error?.message || "Server error";
+        return NextResponse.json({ error: `Server error: ${detailed}` }, { status: 500 })
     }
 }

@@ -46,8 +46,9 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ message: "Succesfully logged in" }, { status: 200 });
 
-    } catch (error) {
-        console.error("Error loging in: ", error);
-        return NextResponse.json({ message: "Server error" }, { status: 500 });
+    } catch (error: any) {
+        console.error("Error logging in: ", error);
+        const detailed = error?.sqlMessage || error?.message || "Server error";
+        return NextResponse.json({ message: `Server error: ${detailed}` }, { status: 500 });
     };
 }
