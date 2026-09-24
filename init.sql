@@ -55,7 +55,7 @@ INSERT IGNORE INTO users (first_name, last_name, password_hash, email, role)
 VALUES (
     'Administrador',
     'Sistema',
-    '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFBG',
+    '$2b$10$.Zo9avfX3Wmq0l4UzNjlNuS5o7EFmg8BsZ0VlnwwQdBto6.3k5CF.',
     'admin@canchas.com',
     'admin'
 );
